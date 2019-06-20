@@ -6,5 +6,5 @@ Feature: Navigate to about page
 
 Scenario: Successfully navigate to next page
     Given A page
-    When More is clicked
-    Then Go to about page
+    When Best Actor is clicked
+    Then Go to actors page

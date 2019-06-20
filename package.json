@@ -4,8 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "NODE_ENV=test npm explore web -- npm run build",
+    "test": "NODE_ENV=test npx cucumber-js --no-strict",
+    "posttest": "NODE_ENV=development npm explore web -- npm run config"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.17.0",
+    "spa-react": "git+https://github.com/iskomt/frontendrepo.git"
+  },
+  "devDependencies": {
+    "cucumber": "^5.1.0"
+  }
 }

@@ -1,16 +1,21 @@
 const { Given, When, Then } = require('cucumber');
+const puppeteer = require('puppeteer')
 
-Given('A page', function () {
-  // Write code here that turns the phrase above into concrete actions
+Given('A page', {timeout:1000} ,  async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://www.google.ca/');
+  await page.screenshot({path: 'example.png'});
+  await browser.close();
+  return await console.log('hello');
+});
+
+When('Best Actor is clicked', function () {
+  console.log("This is clicked");
   return 'pending';
 });
 
-When('More is clicked', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
-});
-
-Then('Go to about page', function () {
-  // Write code here that turns the phrase above into concrete actions
+Then('Go to actors page', function () {
+  console.log("This is about");
   return 'pending';
 });
